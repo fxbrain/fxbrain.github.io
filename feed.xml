@@ -41,7 +41,7 @@ at ../../../dist/include/js/Conversions.h:149
 &lt;p&gt;If we list all the natural numbers below 10 that are
 multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these
 multiples is 23.&lt;/p&gt;
-&lt;p&gt;Find the sum of all the multiples of 3 or 5 below 1000.&lt;/p&gt;
+&lt;h2 id=&quot;find-the-sum-of-all-the-multiples-of-3-or-5-below-1000-&quot;&gt;Find the sum of all the multiples of 3 or 5 below 1000.&lt;/h2&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Let’s create an array 9-1000 using &lt;em&gt;til&lt;/em&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-go&quot;&gt;    a: til &lt;span class=&quot;number&quot;&gt;1000&lt;/span&gt;

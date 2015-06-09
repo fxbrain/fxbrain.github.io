@@ -41,61 +41,8 @@
 <p>If we list all the natural numbers below 10 that are
 multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these
 multiples is&nbsp;23.</p>
-<p>Find the sum of all the multiples of 3 or 5 below&nbsp;1000.</p>
-</blockquote>
-<p>Let’s create an array 9-1000 using <em>til</em></p>
-<pre><code class="lang-go">    a: til <span class="number">1000</span>
 
-    <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span> <span class="number">21</span> <span class="number">22</span> <span class="number">23</span> <span class="number">24</span> <span class="number">25</span> <span class="number">26</span> <span class="number">27</span> <span class="number">28</span> ..
-</code></pre>
-<p>Now we calculate the modulus 5 of each array&nbsp;element</p>
-<pre><code class="lang-go">    a mod <span class="number">5</span>
-
-    <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3.</span>.
-</code></pre>
-<p>(We could’ve used a <em>lambda</em> here, but luckily <em>q</em> operates on lists and does
-automatically vectorize over&nbsp;a)</p>
-<p>Now we need to find all the array elements with remainder&nbsp;0</p>
-<pre><code class="lang-go">    <span class="number">0</span> = a mod <span class="number">5</span>
-
-    <span class="number">10000100001000010000100001000010000100001000010000100001000010000100001000010.</span>.
-</code></pre>
-<p>We’re doing the same with modulus&nbsp;3</p>
-<pre><code class="lang-go">    <span class="number">0</span> = a mod <span class="number">3</span>
-
-    <span class="number">10010010010010010010010010010010010010010010010010010010010010010010010010010.</span>.
-</code></pre>
-<p>Let’s combine both operations using <em>or</em></p>
-<pre><code class="lang-go">    (<span class="number">0</span>=a mod <span class="number">3</span>) or (<span class="number">0</span>=a mod <span class="number">5</span>)
-
-    <span class="number">10010110011010010010110011010010010110011010010010110011010010010110011010010.</span>.
-</code></pre>
-<p>Now we need to multiply the resulting array with an array 0-999, where
-all elements with value 1 are divisible by 3 or 5 with remainder&nbsp;zero.</p>
-<pre><code class="lang-go">    a * (<span class="number">0</span>=a mod <span class="number">3</span>) or (<span class="number">0</span>=a mod <span class="number">5</span>)
-
-    <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">3</span> <span class="number">0</span> <span class="number">5</span> <span class="number">6</span> <span class="number">0</span> <span class="number">0</span> <span class="number">9</span> <span class="number">10</span> <span class="number">0</span> <span class="number">12</span> <span class="number">0</span> <span class="number">0</span> <span class="number">15</span> <span class="number">0</span> <span class="number">0</span> <span class="number">18</span> <span class="number">0</span> <span class="number">20</span> <span class="number">21</span> <span class="number">0</span> <span class="number">0</span> <span class="number">24</span> <span class="number">25</span> <span class="number">0</span> <span class="number">27</span> <span class="number">0</span> <span class="number">0</span> <span class="number">30</span> <span class="number">0</span> <span class="number">0</span> <span class="number">3.</span>.
-</code></pre>
-<p>In the last step we just need to sum up all the resulting&nbsp;elements</p>
-<pre><code class="lang-go">    sum a * (<span class="number">0</span>=a mod <span class="number">3</span>) or (<span class="number">0</span>=a mod <span class="number">5</span>)
-
-    <span class="number">233168</span>
-</code></pre>
-<p>So, the solution to Euler-Problem #1&nbsp;is:</p>
-<pre><code class="lang-go">    p01: sum (til <span class="number">1000</span>) * ({<span class="number">0</span> = x mod <span class="number">3</span>} til <span class="number">1000</span>) or ({<span class="number">0</span> = x mod <span class="number">5</span>} til <span class="number">1000</span>)
-
-    p01
-
-    <span class="number">233168</span>
-</code></pre>
-<p>But wait! <em>q</em> wouldn’t be <em>q</em> and if there wouldn’t be a much terser solution to&nbsp;this:</p>
-<pre><code class="lang-go">    p01: sum {x where any each <span class="number">0</span> = x mod \: <span class="number">3</span> <span class="number">5</span>} til <span class="number">1000</span>
-
-    p01
-
-    <span class="number">233168</span>
-</code></pre>
-
+            <p class="more"><a href="/articles/Functional%20Q/">more</a></p>
           </section>
         </article>
         <article class="article intro">
