@@ -30,7 +30,7 @@ decisions about technology I choose in production.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;As a freelancer, being in an interview, I think these are &lt;strong&gt;THE&lt;/strong&gt; most
 important questions you can/must ask. If properly answered they’ll give you
-deep insights on not only how they’re doing things, but what are the reasons
+deep insights on not only how they’re doing things, but what the reasons are
 for them to contact you.&lt;/p&gt;
 &lt;p&gt;If they’re unable to answer this cogently, well, then the project is
 already in a completely flawed condition and you should maybe just … run?&lt;/p&gt;
@@ -39,10 +39,18 @@ already in a completely flawed condition and you should maybe just … run?&lt;/
 &lt;p&gt;Code is and will always be a &lt;strong&gt;disposable product&lt;/strong&gt;. There is only a minor
 amount in every code-base I know, which is fixed and not due to change/die.
 There are enough developers out there producing code. Of course that does
-not mean the code created is necessarily good. That’s not what I am
-talking about.
-For any problem there will be some code approximating some solution over
+not mean the code created is necessarily good. But this is not my point.&lt;/p&gt;
+&lt;p&gt;For any problem there will be some code approximating some solution over
 the time.&lt;/p&gt;
+&lt;p&gt;The older I get the more a lazy programmer I become. I am more and more
+heading towards a mental state where I think that the best code is probably
+that one that I haven’t written or to put it differently. The less lines
+of code I write, the more stable the system is.&lt;/p&gt;
+&lt;p&gt;My interest has changed over the years. Today I find myself truly happy
+using git, a bunch of compilers, strace, perftool, npm etc. Finding the
+weird and puzzling bug in a distributed system is what makes me tick.&lt;/p&gt;
+&lt;p&gt;But for all this you have to be very profound in using tools and get a
+feeling for the right tool for the job.&lt;/p&gt;
 &lt;p&gt;What I’ve encountered through all these years freelancing in projects,
 that the proper choice of a stack is one of the biggest issues to solve.&lt;/p&gt;
 &lt;p&gt;But, a proper stack is not resulting necessarily in a proper workflow.
@@ -65,6 +73,16 @@ decent workflow is more approximative by nature.&lt;/p&gt;
       <description>&lt;p&gt;There were times where a command line interface (CLI) seemed to be extinct, but due to
 the emerge of tools like &lt;em&gt;Node.js&lt;/em&gt; and &lt;em&gt;Go&lt;/em&gt; the CLI got a revitalisation.&lt;/p&gt;
 &lt;p&gt;A careful crafted CLI can be a powerful tool to an application.&lt;/p&gt;
+&lt;p&gt;What is interesting that we did these things in Perl aeons ago already and still do.
+At these times, when you presented yor carefully crafted CLI the result very often
+were a frown. This is Perl. You cannot write big applications with it.&lt;/p&gt;
+&lt;p&gt;Christ sake. Who wanted this ever in the first place? Every capable Perl hacker knew
+how to divide a complex task into smaller one and use a CLI to mesh these functionalities
+together.&lt;/p&gt;
+&lt;p&gt;Nowadays this is called &lt;strong&gt;micro-service architecture&lt;/strong&gt;. What a bummer. But this here
+is not the right place for a rant against all this and with what terrible blindness people
+just follow the latest hey that essentially does the same thing, but claiming
+simplification the real deal.&lt;/p&gt;
 &lt;p&gt;In this article I’d like to describe how I implemented a CLI library which
 fulfilled my specific needs perfectly&lt;/p&gt;
 &lt;hr&gt;
@@ -73,7 +91,7 @@ fulfilled my specific needs perfectly&lt;/p&gt;
 with the current state of affair considering Go.&lt;/p&gt;
 &lt;h2 id=&quot;2-architecture&quot;&gt;2. Architecture&lt;/h2&gt;
 &lt;p&gt;Basically the idea was this. I wanted to develop a container where commands can register
-itself to get listed with their specific description and can be executed.&lt;/p&gt;
+itself to get listed with their specific description and be executed.&lt;/p&gt;
 &lt;p&gt;These commands I’ll call for now a &lt;em&gt;subcommand&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Every subcommand must fulfill the following interface:&lt;/p&gt;
 &lt;ol&gt;
