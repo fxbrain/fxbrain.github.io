@@ -72,7 +72,7 @@ decent workflow is more approximative by nature.&lt;/p&gt;
       <author></author>
       <description>&lt;p&gt;There were times where a command line interface (CLI) seemed to be extinct, but due to
 the emerge of tools like &lt;em&gt;Node.js&lt;/em&gt; and &lt;em&gt;Go&lt;/em&gt; the CLI got a revitalisation.&lt;/p&gt;
-&lt;p&gt;A careful crafted CLI can be a powerful tool to an application.&lt;/p&gt;
+&lt;h2 id=&quot;a-careful-crafted-cli-can-be-a-powerful-tool-to-an-application-&quot;&gt;A careful crafted CLI can be a powerful tool to an application.&lt;/h2&gt;
 &lt;p&gt;What is interesting that we did these things in Perl aeons ago already and still do.
 At these times, when you presented yor carefully crafted CLI the result very often
 were a frown. This is Perl. You cannot write big applications with it.&lt;/p&gt;
@@ -85,7 +85,6 @@ just follow the latest hey that essentially does the same thing, but claiming
 simplification the real deal.&lt;/p&gt;
 &lt;p&gt;In this article I’d like to describe how I implemented a CLI library which
 fulfilled my specific needs perfectly&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2 id=&quot;1-intro&quot;&gt;1. Intro&lt;/h2&gt;
 &lt;p&gt;While there are many options to choose, when in Node.js for a CLI I was not happy
 with the current state of affair considering Go.&lt;/p&gt;
