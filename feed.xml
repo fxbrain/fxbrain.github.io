@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stop making foo</title>
+    <atom:link href="http://localhost:8080/feed.xml" rel="self" type="application/rss+xml"></atom:link>
+    <link>http://localhost:8080</link>
+    <description>On such and such...</description>
+    <pubDate>Fri, 10 Apr 2015 02:00:00 +0200</pubDate>
+    <generator>Wintersmith - https://github.com/jnordberg/wintersmith</generator>
+    <language>en</language>
+    <item>
+      <title>Javascript Signed Integer Conversions</title>
+      <link>http://localhost:8080/articles/JavaScript%20Signed%20Integer%20conversion/</link>
+      <pubDate>Fri, 10 Apr 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/JavaScript%20Signed%20Integer%20conversion/</guid>
+      <author></author>
+      <description>&lt;p&gt;Many folksd are confused on how asm.js is using specific operators to force values to become signed integers. This article tries to shed a light upon this affair.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;We can dig into SpiderMonkey using gdb to realise the type conversion life:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;gdb --args js
+[...]
+(gdb) b JS::ToInt32
+(gdb) r
+
+js&amp;gt; var i = 123.3;
+js&amp;gt; i|3
+
+Breakpoint 2, JS::ToInt32 (cx=0x7ffff6b67180, v=$jsval(123.3), out=0x7fffffffda60)
+at ../../../dist/include/js/Conversions.h:149
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So we proofed that the ‘|’ operator does type coercion into signed integer.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>LIESMICH</title>
+      <link>http://localhost:8080/articles/guten-tag/</link>
+      <pubDate>Wed, 01 Apr 2015 02:00:00 +0200</pubDate>
+      <guid isPermaLink="true">http://localhost:8080/articles/guten-tag/</guid>
+      <author></author>
+      <description>&lt;p&gt;Das ist mein Blog. Hier werde ich über Literatur, Mathematik und Musik schreiben. Als mystisch dämmender im ewigen Jetzt, scheint das mir ein sinnvoller Verbleib im Vergleich zu vollgekritzelten Lettern, die mehr und mehr verschüttet werden durch das sich türmende Geschehen um einen herum.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>
